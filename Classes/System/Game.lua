@@ -125,8 +125,8 @@ function Game:prepare()
   end 
 
   -- BUTTON FOR GOING TO BATTLE
-  local btn_Battle = ComponentRenderer:renderButton('Assets/Buttons/Btn_Play.png', { 
-    filename_clicked = 'Assets/Buttons/Btn_PlayClicked.png',
+  local btn_Battle = ComponentRenderer:renderButton('Assets/Buttons/Btn_Battle.png', { 
+    filename_clicked = 'Assets/Buttons/Btn_BattleClicked.png',
     width = 86, 
     height = 86
   })

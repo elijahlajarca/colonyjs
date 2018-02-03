@@ -3,7 +3,7 @@ local SpriteRenderer = require('Classes.Renderer.SpriteRenderer')
 
 local RockRenderer = {} 
 
-function RockRenderer:prepare(parent, options) 
+function RockRenderer:prepare(class, parent, options) 
   local rockGroup = display.newGroup() 
 
   -- SETUP GO-ALONG INFORMATION
@@ -16,7 +16,8 @@ function RockRenderer:prepare(parent, options)
     local focus = event.target
     local stage = display.getCurrentStage()
     if event.phase == 'ended' then
-      if not parent.isTimedOut then
+      if not class.isTimedOut then
+        class.isTimedOut = true
         rockGroup.attackSprite.isVisible = true
         rockGroup.attackSprite.animate('Pulse')
       end
@@ -49,7 +50,6 @@ function RockRenderer:prepare(parent, options)
           end
         end
 
-        parent.isTimedOut = true
         parent.beginTimer()
         timer.performWithDelay(1, function() Collision:deleteByTag('AttackRock') end)
       end)

@@ -16,11 +16,11 @@ function scene:create( event )
 
   local btn_StartGame = ComponentRenderer:renderButton('Assets/Buttons/Btn_Play.png', {
     filename_clicked = 'Assets/Buttons/Btn_PlayClicked.png',
-    width = 300,
+    width = 400,
     height = 86,
   })
-  btn_StartGame.x = display.contentCenterX - btn_StartGame.width / 2 - 25
-  btn_StartGame.y = (display.contentHeight - btn_StartGame.height / 2) - 100
+  btn_StartGame.x = display.contentCenterX
+  btn_StartGame.y = (display.contentHeight - btn_StartGame.height / 2) - 200
   btn_StartGame:addEventListener('touch', function(event)
     if event.phase == 'ended' then
       composer.gotoScene('Classes.Scenes.BattleProper')
@@ -30,11 +30,11 @@ function scene:create( event )
 
   local btn_ChangeLooks = ComponentRenderer:renderButton('Assets/Buttons/Btn_Style.png', {
     filename_clicked = 'Assets/Buttons/Btn_StyleClicked.png',
-    width = 300,
+    width = 400,
     height = 86,
   })
-  btn_ChangeLooks.x = display.contentCenterX + btn_StartGame.width / 2 + 25
-  btn_ChangeLooks.y = (display.contentHeight - btn_StartGame.height / 2) - 100
+  btn_ChangeLooks.x = display.contentCenterX
+  btn_ChangeLooks.y = (display.contentHeight - btn_StartGame.height / 2) - 75
   btn_ChangeLooks:addEventListener('touch', function(event)
     if event.phase == 'ended' then
       composer.gotoScene('Classes.Scenes.StyleChange')

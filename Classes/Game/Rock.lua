@@ -6,20 +6,21 @@ local Guardian = require('Classes.Game.Guardian')
 
 local RockRenderer = require('Classes.Renderer.RockRenderer')
 
-local Rock = {}
+local Rock = {
+  isTimedOut = false
+}
 
 function Rock:new()
   local rock = {
     id = 'rock',
     side = 'guardian',
     class = 'Rock',
-    health = 500,
-    isTimedOut = false
+    health = 500
   }
   rock.x = display.contentCenterX
   rock.y = display.contentCenterY
 
-  rock.view = RockRenderer:prepare(rock, {
+  rock.view = RockRenderer:prepare(Rock, rock, {
     xScale = 0.5, 
     yScale = 0.5
   }) 
@@ -76,7 +77,7 @@ function Rock:new()
   rock.onPoisoned = function() print('Rock cannot be poisoned') end
 
   rock.beginTimer = function() 
-    timer.performWithDelay(60000, function() rock.isTimedOut = false end)
+    timer.performWithDelay(60000, function() Rock.isTimedOut = false end)
   end
 
   rock.draw = function() 

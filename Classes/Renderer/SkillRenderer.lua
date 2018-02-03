@@ -192,14 +192,14 @@ function SkillRenderer:updateSkill(skill)
   displayGroup:insert(displayGroup.infoGroup)
 
   -- UPDATE BUTTON
-  displayGroup.btn_Equip = ComponentRenderer:renderButton('Assets/Buttons/Btn_Update.png', {
+  displayGroup.btn_Equip = ComponentRenderer:renderButton(skill.params and 'Assets/Buttons/Btn_Update.png' or 'Assets/Buttons/Btn_UpdateDisabled.png', {
     filename_clicked = skill.params and 'Assets/Buttons/Btn_UpdateClicked.png' or nil,
-    width = 300, 
+    width = 400, 
     height = 86,
     isDisabled = not skill.params
   })
-  displayGroup.btn_Equip.x = -(displayGroup.btn_Equip.width / 2 + 25)
-  displayGroup.btn_Equip.y = (display.contentHeight / 2 - displayGroup.btn_Equip.height / 2) - 150
+  displayGroup.btn_Equip.x = 0
+  displayGroup.btn_Equip.y = (display.contentHeight / 2 - displayGroup.btn_Equip.height / 2) - 125
   displayGroup.btn_Equip:addEventListener('touch', function(event)
     if skill.params then
       if event.phase == 'ended' then
@@ -221,11 +221,11 @@ function SkillRenderer:updateSkill(skill)
   -- CANCEL BUTTON
   displayGroup.btn_Cancel = ComponentRenderer:renderButton('Assets/Buttons/Btn_Cancel.png', {
     filename_clicked = 'Assets/Buttons/Btn_CancelClicked.png',
-    width = 300, 
+    width = 400, 
     height = 86,
   })
-  displayGroup.btn_Cancel.x = displayGroup.btn_Cancel.width / 2 + 25
-  displayGroup.btn_Cancel.y = (display.contentHeight / 2 - displayGroup.btn_Cancel.height / 2) - 150
+  displayGroup.btn_Cancel.x = 0
+  displayGroup.btn_Cancel.y = (display.contentHeight / 2 - displayGroup.btn_Cancel.height / 2) - 25
   displayGroup.btn_Cancel:addEventListener('touch', function(event)
     if event.phase == 'ended' then 
       displayGroup:removeSelf()
@@ -322,7 +322,7 @@ function SkillRenderer:pickSkill(parent, options)
   -- CANCEL BUTTON
   displayGroup.btn_Cancel = ComponentRenderer:renderButton('Assets/Buttons/Btn_Cancel.png', {
     filename_clicked = 'Assets/Buttons/Btn_CancelClicked.png',
-    width = 300, 
+    width = 400, 
     height = 86,
   })
   displayGroup.btn_Cancel.y = display.contentHeight / 2 - 75
@@ -432,11 +432,11 @@ function SkillRenderer:displayCardInformation(parent, skill, options)
   -- EQUIP BUTTON
   displayGroup.btn_Equip = ComponentRenderer:renderButton('Assets/Buttons/Btn_Equip.png', {
     filename_clicked = 'Assets/Buttons/Btn_EquipClicked.png',
-    width = 300, 
+    width = 400, 
     height = 86,
   })
-  displayGroup.btn_Equip.x = -(displayGroup.btn_Equip.width / 2 + 25)
-  displayGroup.btn_Equip.y = (display.contentHeight / 2 - displayGroup.btn_Equip.height / 2) - 150
+  displayGroup.btn_Equip.x = 0
+  displayGroup.btn_Equip.y = (display.contentHeight / 2 - displayGroup.btn_Equip.height / 2) - 125
   displayGroup.btn_Equip:addEventListener('touch', function(event)
     if event.phase == 'ended' then
       -- PREPARE PARAMETERS IF ANY
@@ -478,11 +478,11 @@ function SkillRenderer:displayCardInformation(parent, skill, options)
   -- CANCEL BUTTON
   displayGroup.btn_Cancel = ComponentRenderer:renderButton('Assets/Buttons/Btn_Cancel.png', {
     filename_clicked = 'Assets/Buttons/Btn_CancelClicked.png',
-    width = 300, 
+    width = 400, 
     height = 86,
   })
-  displayGroup.btn_Cancel.x = displayGroup.btn_Cancel.width / 2 + 25
-  displayGroup.btn_Cancel.y = (display.contentHeight / 2 - displayGroup.btn_Cancel.height / 2) - 150
+  displayGroup.btn_Cancel.x = 0
+  displayGroup.btn_Cancel.y = (display.contentHeight / 2 - displayGroup.btn_Cancel.height / 2) - 25
   displayGroup.btn_Cancel:addEventListener('touch', function(event)
     if event.phase == 'ended' then 
       displayGroup:removeSelf()

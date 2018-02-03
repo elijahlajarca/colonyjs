@@ -16,7 +16,7 @@ function scene:create( event )
 
   local btn_Continue = ComponentRenderer:renderButton(Game.savedData and 'Assets/Buttons/Btn_Continue.png' or 'Assets/Buttons/Btn_ContinueDisabled.png', { 
     filename_clicked = Game.savedData and 'Assets/Buttons/Btn_ContinueClicked.png' or nil,
-    width = 300, 
+    width = 400, 
     height = 86,
     x = display.contentCenterX, 
     isDisabled = not Game.savedData
@@ -33,7 +33,7 @@ function scene:create( event )
   
   local btn_StartNewGame = ComponentRenderer:renderButton('Assets/Buttons/Btn_NewGame.png', {
     filename_clicked = 'Assets/Buttons/Btn_NewGameClicked.png',
-    width = 300,
+    width = 400,
     height = 86,
     x = display.contentCenterX, 
   })
@@ -48,7 +48,7 @@ function scene:create( event )
 
   local btn_Leaderboard = ComponentRenderer:renderButton('Assets/Buttons/Btn_Leaderboard.png', {
     filename_clicked = 'Assets/Buttons/Btn_LeaderboardClicked.png',
-    width = 300,
+    width = 400,
     height = 86,
     x = display.contentCenterX, 
   })
