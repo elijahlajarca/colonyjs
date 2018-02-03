@@ -28,7 +28,7 @@ function SkillRenderer:prepareSkillList(parent, options)
       sheetContentWidth = 520,
       sheetContentHeight = 176 
     }
-    local imageSheet = graphics.newImageSheet('Assets/SkillIcons/' .. v.name .. '.png', sheetOptions)
+    local imageSheet = graphics.newImageSheet('Assets/SkillIcons/' .. String:toTitleCase(v.name) .. '.png', sheetOptions)
 
     if imageSheet then
       local sequence = { name = 'play', start = 1, count = 4, time = 500, loopCount = 0, loopDirection = 'forward' }
@@ -135,7 +135,7 @@ function SkillRenderer:updateSkill(skill)
     sheetContentWidth = 800,
     sheetContentHeight = 270 
   }
-  local imageSheet = graphics.newImageSheet('Assets/SkillIcons/' .. skill.name .. '.png', sheetOptions)
+  local imageSheet = graphics.newImageSheet('Assets/SkillIcons/' .. String:toTitleCase(skill.name) .. '.png', sheetOptions)
 
   if imageSheet then
     local sequence = { name = 'play', start = 1, count = 4, time = 500, loopCount = 0, loopDirection = 'forward' }
@@ -284,7 +284,7 @@ function SkillRenderer:pickSkill(parent, options)
         sheetContentWidth = 520,
         sheetContentHeight = 176 
       }
-      local imageSheet = graphics.newImageSheet('Assets/SkillIcons/' .. skill.name .. '.png', sheetOptions)
+      local imageSheet = graphics.newImageSheet('Assets/SkillIcons/' .. String:toTitleCase(skill.name) .. '.png', sheetOptions)
 
       local card = nil
       if imageSheet then
@@ -368,7 +368,7 @@ function SkillRenderer:displayCardInformation(parent, skill, options)
     sheetContentWidth = 800,
     sheetContentHeight = 270 
   }
-  local imageSheet = graphics.newImageSheet('Assets/SkillIcons/' .. skill.name .. '.png', sheetOptions)
+  local imageSheet = graphics.newImageSheet('Assets/SkillIcons/' .. String:toTitleCase(skill.name) .. '.png', sheetOptions)
 
   if imageSheet then
     local sequence = { name = 'play', start = 1, count = 4, time = 500, loopCount = 0, loopDirection = 'forward' }

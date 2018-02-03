@@ -78,6 +78,7 @@ function Game:_destroy()
 end
 
 function Game:prepare()
+  Rock.isTimedOut = true
   GuardianRenderer.isEditable = true
   Collision.isDetecting = false
 
@@ -148,6 +149,7 @@ function Game:prepare()
 end
 
 function Game:battle() 
+  Rock.isTimedOut = false
   GuardianRenderer.isEditable = false
   Collision.isDetecting = true
 
