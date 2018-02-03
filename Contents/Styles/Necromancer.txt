@@ -1,4 +1,4 @@
-eyecolor_black
-eyecolor_white
-cloak_blue
-cloak_brown
+EyeBlack
+EyeWhite
+CloakBblue
+CloakBrown

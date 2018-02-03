@@ -6,9 +6,8 @@ function Style:render()
   StyleRenderer:renderStyle()
 end
 
-function load(class)
-
-
+function Style:load(class)
+  
 end
 
 return Style
