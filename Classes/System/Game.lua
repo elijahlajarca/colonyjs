@@ -24,7 +24,7 @@ local Game = {
 function Game:_init()
   -- INITIALIZE ROCK
   Rock:new()
-
+  
   -- INITIALIZE DRAW TIMER/RENDER TIMER
   timer.performWithDelay(1, function()
     for i, v in ipairs(GameObject.gameObjectSet) do

@@ -4,6 +4,15 @@ local Collision = {
 }
 
 function Collision:newCircle(parent, radius, options)
+  -- CHECK WHETHER THE TAG IS ALREADY ON THE COLLISION OBJECT SET
+  if options and options.tag then
+    for i, v in ipairs(Collision.collisionObjectSet) do
+      if v.tag == options.tag then 
+        return v
+      end
+    end
+  end
+
   local collisionObject = {
     shape = 'circle',
     parent = parent, 
@@ -43,6 +52,15 @@ function Collision:newCircle(parent, radius, options)
 end
 
 function Collision:newRectangle(parent, width, height, options)
+  -- CHECK WHETHER THE TAG IS ALREADY ON THE COLLISION OBJECT SET
+  if options and options.tag then
+    for i, v in ipairs(Collision.collisionObjectSet) do
+      if v.tag == options.tag then 
+        return v
+      end
+    end
+  end
+
   local collisionObject = {
     shape = 'rectangle', 
     parent = parent, 

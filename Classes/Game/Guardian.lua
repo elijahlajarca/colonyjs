@@ -286,7 +286,6 @@ function Guardian:new(class)
                   if v.parent.side == 'guardian' then
                     if v.parent.health > 0 then
                       v.parent.health = v.parent.health + (guardian.shieldStrength * 0.75)
-                      print(v.parent.health - 5 .. ' => ' .. v.parent.health)
 
                       timer.performWithDelay(1000, function() 
                         v.parent.health = v.parent.health - 5 
@@ -357,8 +356,6 @@ function Guardian:new(class)
         local damage = (options and options.isDefenseNulled) and source.attack or math.floor(source.attack - guardian.defense / 2)
         damage = damage > 0 and damage or 0
         guardian.health = guardian.health - damage
-
-        print('Damage: ' .. damage)
 
         if guardian.health <= 0 then
           -- GUARDIAN COUNT 

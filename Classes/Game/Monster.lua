@@ -4,6 +4,7 @@ local GameObject = require('Classes.System.GameObject')
 local Wave = require('Classes.System.Wave')
 
 local MonsterRenderer = require('Classes.Renderer.MonsterRenderer')
+local SpriteRenderer = require('Classes.Renderer.SpriteRenderer')
 
 local Monster = {
   monsterIndex = 1, 
@@ -80,7 +81,12 @@ function Monster:new(class, x, y)
 
     monster.attackEnemy = function(target, callback)
       if monster.health > 0 then
+        if monster.view.attackSprite then monster.view.attackSprite.isVisible = false end
+
+        local attack = { class = monster.class .. 'Attack' }
+        monster.view.attackSprite = SpriteRenderer:draw(attack)
         monster.view.attackSprite.isVisible = true
+        monster.view:insert(monster.view.attackSprite)
 
         function spriteListener(event)
           if event.phase == 'ended' then
@@ -91,13 +97,13 @@ function Monster:new(class, x, y)
               -- FILTER ENEMIES AND MONSTERS
               for i, v in ipairs(charSet) do
                 if v.parent.side == 'guardian' then
-                  if monster.health > 0 then
+                  if monster.health > 0 and (v.parent and v.parent.health > 0) then
                     v.parent.onDamaged(monster)
                   end
                 end
               end
 
-              if callback then timer.performWithDelay(monster.slackTime * 1000, callback) end
+              if callback then timer.performWithDelay(monster.slackTime * 1000, function() callback() end) end
 
               monster.view.attackSprite:removeEventListener('sprite', spriteListener)
               timer.performWithDelay(1, function() Collision:deleteByTag('Attack' .. monster.id) end)

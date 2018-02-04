@@ -66,13 +66,7 @@ function MonsterRenderer:prepare(parent, options)
   monsterGroup.toggleables = toggleables
   toggleables.isVisible = false
   monsterGroup:insert(toggleables)
-
-  -- SETUP ATTACK SPRITE
-  local attack = { class = parent.class .. 'Attack' }
-  monsterGroup.attackSprite = SpriteRenderer:draw(attack)
-  monsterGroup.attackSprite.isVisible = false
-  monsterGroup:insert(monsterGroup.attackSprite)
-
+  
   -- SETUP SPRITE
   monsterGroup.sprite = SpriteRenderer:draw(parent, options)
   monsterGroup.sprite.collision = Collision:newRectangle(parent, monsterGroup.sprite.width, monsterGroup.sprite.height)
