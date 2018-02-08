@@ -42,14 +42,14 @@ function scene:create( event )
   end)
   sceneGroup:insert(btn_ChangeLooks)
   
-  local btn_Back = ComponentRenderer:renderButton('Assets/Buttons/Btn_Back.png', {
-	filename_clicked = 'Assets/Buttons/Btn_BackClicked.png',
+  local btn_Done = ComponentRenderer:renderButton('Assets/Buttons/Btn_Done.png', {
+	filename_clicked = 'Assets/Buttons/Btn_DoneClicked.png',
 	width = 400,
 	height = 86,
   })
-  btn_Back.x = display.contentCenterX
-  btn_Back.y = (display.contentHeight - btn_Back.height / 2) - 75
-  transition.to(btn_Back, {time = 0, alpha = 0})
+  btn_Done.x = display.contentCenterX
+  btn_Done.y = (display.contentHeight - btn_Done.height / 2) - 75
+  transition.to(btn_Done, {time = 0, alpha = 0})
   
   local btn_Upgrades = ComponentRenderer:renderButton('Assets/Buttons/Btn_Upgrades.png', {
     filename_clicked = 'Assets/Buttons/Btn_UpgradesClicked.png',
@@ -61,10 +61,10 @@ function scene:create( event )
   btn_Upgrades:addEventListener('touch', function(event)
     if event.phase == 'ended' then
 	  placeholder.text = 'Upgrade tree with start game: ENABLED'
-	  btn_Back:addEventListener('touch', function(event)
+	  btn_Done:addEventListener('touch', function(event)
 		if event.phase == 'ended' then
 			placeholder.text = 'Upgrade tree with start game: DISABLED'
-			transition.to(btn_Back, {time = 250, alpha = 0})
+			transition.to(btn_Done, {time = 250, alpha = 0})
 			transition.to(btn_StartGame, {
 				time = 250, 
 				delay = 250, 
@@ -90,7 +90,7 @@ function scene:create( event )
 		end
       end)
 	  
-	  transition.to(btn_Back, {time = 250, delay = 200, alpha = 1.0})
+	  transition.to(btn_Done, {time = 250, delay = 200, alpha = 1.0})
 	  transition.to(btn_StartGame, {time = 250, alpha = 0, x = display.contentCenterX, y = display.contentHeight})
 	  transition.to(btn_Upgrades, {time = 250, alpha = 0, x = display.contentCenterX, y = display.contentHeight + 100})
 	  transition.to(btn_ChangeLooks, {time = 250, alpha = 0, x = display.contentCenterX, y = display.contentHeight + 200})
